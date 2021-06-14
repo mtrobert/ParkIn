@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ParkInAPI.Data;
+using ParkInAPI.ParkInMapper;
 using ParkInAPI.Repository;
 using ParkInAPI.Repository.IRepository;
 using System;
@@ -32,6 +33,7 @@ namespace ParkInAPI
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
+            services.AddAutoMapper(typeof(ParkInMappings));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
