@@ -9,7 +9,9 @@ namespace ParkInAPI.Models.DTOs
     public class NationalParkDTO
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Location { get; set; }
         public string Area { get; set; }
         public DateTime Created { get; set; }
